@@ -76,6 +76,7 @@ public class LoginTask extends AsyncTask<String, Void, ConnectionResponse> {
             while ((strCurrentLine = bufferedReader.readLine()) != null) {
                 result.append(strCurrentLine);
             }
+            connection.disconnect();
             return new ConnectionResponse(status, result.toString());
 
         } catch (java.net.MalformedURLException e) {
