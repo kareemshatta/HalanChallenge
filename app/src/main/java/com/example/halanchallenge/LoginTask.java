@@ -4,26 +4,33 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 import static android.content.ContentValues.TAG;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
-public class LoginTask extends AsyncTask<String, Void, Boolean> {
+import com.google.gson.Gson;
+
+public class LoginTask extends AsyncTask<String, Void, ConnectionResponse> {
 
 
     private String username, password;
     private Context context;
 
-    LoginTask(Context context){
-        this.context =context;
+    LoginTask(Context context) {
+        this.context = context;
     }
 
     @Override
@@ -32,7 +39,7 @@ public class LoginTask extends AsyncTask<String, Void, Boolean> {
     }
 
     @Override
-    protected Boolean doInBackground(String... params) {
+    protected ConnectionResponse doInBackground(String... params) {
 
         //Set username and password
         this.username = params[0];
@@ -58,29 +65,53 @@ public class LoginTask extends AsyncTask<String, Void, Boolean> {
 
 
             int status = connection.getResponseCode();
-            switch (status) {
-                case 200:
-
-                    this.onPostExecute(true);
+            BufferedReader bufferedReader = null;
+            if (status == 200) {
+                bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            } else {
+                bufferedReader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
             }
+            StringBuilder result = new StringBuilder();
+            String strCurrentLine;
+            while ((strCurrentLine = bufferedReader.readLine()) != null) {
+                result.append(strCurrentLine);
+            }
+            return new ConnectionResponse(status, result.toString());
+
         } catch (java.net.MalformedURLException e) {
             Log.w(TAG, "Exception while constructing URL" + e.getMessage());
         } catch (IOException | JSONException e) {
             Log.w(TAG, "Exception occured while logging in: " + e.getMessage());
         }
-
-        return false;
+        return new ConnectionResponse(500, "Server error");
     }
 
     @Override
-    protected void onPostExecute(Boolean success) {
+    protected void onPostExecute(ConnectionResponse connectionResponse) {
         //TODO: After async task finished based on task success
-        if (success){
+        if (connectionResponse.status == 200) {
             Intent myIntent = new Intent(context, ProductsListActivity.class);
+            myIntent.putExtra("RESPONSE", connectionResponse.result);
             myIntent.setFlags(FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(myIntent);
+        } else {
+            try {
+                JSONObject jsonObject = new JSONObject(connectionResponse.result);
+                Toast.makeText(context, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                Toast.makeText(context, connectionResponse.result, Toast.LENGTH_SHORT).show();
+            }
         }
-
     }
+}
 
+class ConnectionResponse {
+    int status;
+    String result;
+
+    ConnectionResponse(int status, String result) {
+        this.status = status;
+        this.result = result;
+    }
 }
