@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="EditTextStyle">
+        <item name="android:minHeight">@dimen/editTextHeight</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:direction">right_to_left</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:minHeight">@dimen/buttonHeight</item>
+        <item name="android:textSize">@dimen/textXLarge</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
