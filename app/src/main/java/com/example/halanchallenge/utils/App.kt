@@ -1,4 +1,4 @@
-package com.example.halanchallenge
+package com.example.halanchallenge.utils
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

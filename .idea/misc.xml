@@ -7,7 +7,9 @@
         <entry key="app/src/main/res/layout/activity_halan_challenge.xml" value="0.14635416666666667" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.14635416666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16041666666666668" />
+        <entry key="app/src/main/res/layout/activity_products_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_products_list.xml" value="0.33" />
       </map>
     </option>
   </component>
