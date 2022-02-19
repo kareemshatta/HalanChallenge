@@ -1,9 +1,7 @@
-package com.example.halanchallenge.presentation.ui
+package com.example.halanchallenge
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class App: Application() {
-
-}
+class App: Application()

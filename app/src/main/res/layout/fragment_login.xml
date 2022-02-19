@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.login.LoginFragment">
+    tools:context="com.example.halanchallenge.ui.login.LoginFragment">
 
 
     <ImageView
         android:id="@+id/ivLoginPhoto"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="50dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintDimensionRatio="H,3:1.5"
+        app:layout_constraintDimensionRatio="H,3:2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@raw/online_shopping"
         tools:ignore="contentDescription" />
 
     <EditText
@@ -32,7 +31,6 @@
         android:hint="@string/user_name"
         android:importantForAutofill="no"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/etLoginPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivLoginPhoto" />
@@ -43,14 +41,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/password"
         android:importantForAutofill="no"
-        android:inputType="textPassword"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etLoginUserName" />
+        app:layout_constraintTop_toBottomOf="@+id/etLoginUserName"
+        tools:ignore="TextFields" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -64,5 +63,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/pbLoadingBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

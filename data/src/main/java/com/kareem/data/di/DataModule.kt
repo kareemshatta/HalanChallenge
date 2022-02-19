@@ -4,6 +4,7 @@ import com.kareem.data.remote.ApiInterface
 import com.kareem.data.repositories_imp.AuthRepositoryImpl
 import com.kareem.data.utils.Constants
 import com.kareem.domain.repositories.AuthRepository
+import com.kareem.domain.useCases.auth.LoginUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,17 +19,20 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideServiceApi(): ApiInterface {
-        return Retrofit.Builder()
+    fun provideServiceApi(): ApiInterface =
+        Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiInterface::class.java)
-    }
 
-//    @Provides
-//    @Singleton
-//    fun provideAuthRepository(): AuthRepository {
-//        return AuthRepositoryImpl()
-//    }
+    @Provides
+    @Singleton
+    fun provideAuthRepository(): AuthRepository =
+        AuthRepositoryImpl(provideServiceApi())
+    
+    @Provides
+    @Singleton
+    fun provideLoginUseCase() =
+        LoginUseCase(provideAuthRepository())
 }
