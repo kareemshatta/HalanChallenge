@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/layout/fragment_product_details.xml" value="0.16" />
         <entry key="app/src/main/res/layout/fragment_products_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/image_view_item.xml" value="0.16041666666666668" />
+        <entry key="app/src/main/res/layout/product_item.xml" value="0.14635416666666667" />
       </map>
     </option>
   </component>
