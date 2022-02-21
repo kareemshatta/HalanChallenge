@@ -1,0 +1,6 @@
+com/kareem/domain/BuildConfig.java
+ com.kareem.domain.BuildConfig
+com/kareem/domain/useCases/products/GetProductsListUseCase_Factory.java
+ com.kareem.domain.useCases.products.GetProductsListUseCase_Factory
+com/kareem/domain/useCases/auth/LoginUseCase_Factory.java
+ com.kareem.domain.useCases.auth.LoginUseCase_Factory

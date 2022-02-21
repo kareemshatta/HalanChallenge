@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kareem.domain.ExampleUnitTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-19T16:02:08" hostname="kareem-HP-Notebook" time="0.005">
+  <properties/>
+  <testcase name="givenValidLoginInput_whenValidateIt_shouldReturnTrue" classname="com.kareem.domain.ExampleUnitTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

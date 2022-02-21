@@ -1,0 +1,23 @@
+hilt_aggregated_deps/_com_kareem_data_di_DataModule.java
+ hilt_aggregated_deps._com_kareem_data_di_DataModule
+com/kareem/data/BuildConfig.java
+ com.kareem.data.BuildConfig
+com/kareem/data/repositories_imp/auth/AuthRepositoryImpl_Factory.java
+ com.kareem.data.repositories_imp.auth.AuthRepositoryImpl_Factory
+com/kareem/data/di/DataModule_ProvideAuthRepositoryFactory.java
+ com.kareem.data.di.DataModule_ProvideAuthRepositoryFactory
+ com.kareem.data.di.DataModule_ProvideAuthRepositoryFactory$InstanceHolder
+com/kareem/data/repositories_imp/products/ProductsRepositoryImpl_Factory.java
+ com.kareem.data.repositories_imp.products.ProductsRepositoryImpl_Factory
+com/kareem/data/di/DataModule_ProvideProductsRepositoryFactory.java
+ com.kareem.data.di.DataModule_ProvideProductsRepositoryFactory
+ com.kareem.data.di.DataModule_ProvideProductsRepositoryFactory$InstanceHolder
+com/kareem/data/di/DataModule_ProvideLoginUseCaseFactory.java
+ com.kareem.data.di.DataModule_ProvideLoginUseCaseFactory
+ com.kareem.data.di.DataModule_ProvideLoginUseCaseFactory$InstanceHolder
+com/kareem/data/di/DataModule_ProvideServiceApiFactory.java
+ com.kareem.data.di.DataModule_ProvideServiceApiFactory
+ com.kareem.data.di.DataModule_ProvideServiceApiFactory$InstanceHolder
+com/kareem/data/di/DataModule_ProvideGetProductsListUseCaseFactory.java
+ com.kareem.data.di.DataModule_ProvideGetProductsListUseCaseFactory
+ com.kareem.data.di.DataModule_ProvideGetProductsListUseCaseFactory$InstanceHolder
