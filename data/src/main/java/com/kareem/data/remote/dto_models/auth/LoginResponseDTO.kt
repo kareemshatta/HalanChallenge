@@ -1,4 +1,4 @@
-package com.kareem.data.remote.dto_models
+package com.kareem.data.remote.dto_models.auth
 
 import com.kareem.domain.mapper.Mapper
 import com.kareem.domain.models.entities.LoginResponse

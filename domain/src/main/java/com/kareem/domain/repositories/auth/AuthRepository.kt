@@ -1,4 +1,4 @@
-package com.kareem.domain.repositories
+package com.kareem.domain.repositories.auth
 
 import com.kareem.domain.models.entities.LoginResponse
 import com.kareem.domain.models.inputs.LoginInput

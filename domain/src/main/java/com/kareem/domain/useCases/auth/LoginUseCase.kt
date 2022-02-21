@@ -2,7 +2,7 @@ package com.kareem.domain.useCases.auth
 
 import com.kareem.domain.models.entities.LoginResponse
 import com.kareem.domain.models.inputs.LoginInput
-import com.kareem.domain.repositories.AuthRepository
+import com.kareem.domain.repositories.auth.AuthRepository
 import com.kareem.domain.result.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

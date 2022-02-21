@@ -10,11 +10,10 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.halanchallenge.R
 import com.example.halanchallenge.databinding.FragmentLoginBinding
-import com.example.halanchallenge.utils.Constants
 import com.kareem.domain.models.entities.LoginResponse
 import com.kareem.domain.models.inputs.LoginInput
 import com.kareem.domain.result.Resource
@@ -58,7 +57,9 @@ class LoginFragment : Fragment() {
                 when (uiState) {
                     is Resource.Success -> {
                         binding.pbLoadingBar.isVisible = false
-                        navigateFromLoginToProductsList(binding.root, uiState.data ?: LoginResponse())
+                        navigateFromLoginToProductsList(
+                            uiState.data ?: LoginResponse()
+                        )
                     }
                     is Resource.Error -> {
                         binding.pbLoadingBar.isVisible = false
@@ -76,14 +77,13 @@ class LoginFragment : Fragment() {
             }
         }
     }
-    private fun navigateFromLoginToProductsList(view: View, loginResponse: LoginResponse){
-        Navigation.findNavController(view).navigate(
-            R.id.action_loginFragment_to_productsListFragment,
-            Bundle().apply {
-                putSerializable(Constants.LOGIN_RESPONSE, loginResponse)
-            }
+
+    private fun navigateFromLoginToProductsList(loginResponse: LoginResponse) {
+        findNavController().navigate(
+            LoginFragmentDirections.actionLoginFragmentToProductsListFragment(loginResponse)
         )
     }
+
     private fun setupViewController() {
         binding.btnLogin.setOnClickListener {
             lifecycleScope.launch(coroutineContext) {

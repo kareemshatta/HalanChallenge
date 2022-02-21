@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.halanchallenge.CoroutinesTestRule
 import com.kareem.domain.models.entities.LoginResponse
 import com.kareem.domain.models.inputs.LoginInput
-import com.kareem.domain.repositories.AuthRepository
+import com.kareem.domain.repositories.auth.AuthRepository
 import com.kareem.domain.result.Resource
 import com.kareem.domain.useCases.auth.LoginUseCase
 import junit.framework.TestCase
@@ -69,10 +69,7 @@ class AuthViewModelTest : TestCase() {
     }
     @Test
     fun givenEmptyInput_whenLogin_shouldReturnTrue() {
-        loginInput = LoginInput(
-            username = "123",
-            password = "123",
-        )
+        loginInput = LoginInput("","")
         runTest {
             viewModel.login(loginInput)
             Assert.assertTrue(viewModel.uiState.value is Resource.Error)

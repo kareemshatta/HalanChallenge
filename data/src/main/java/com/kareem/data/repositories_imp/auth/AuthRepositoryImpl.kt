@@ -1,9 +1,9 @@
-package com.kareem.data.repositories_imp
+package com.kareem.data.repositories_imp.auth
 
 import com.kareem.data.remote.ApiInterface
 import com.kareem.domain.models.entities.LoginResponse
 import com.kareem.domain.models.inputs.LoginInput
-import com.kareem.domain.repositories.AuthRepository
+import com.kareem.domain.repositories.auth.AuthRepository
 import org.json.JSONObject
 import javax.inject.Inject
 
