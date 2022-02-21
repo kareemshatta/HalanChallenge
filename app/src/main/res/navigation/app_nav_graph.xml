@@ -9,24 +9,38 @@
         android:id="@+id/loginFragment"
         android:name="com.example.halanchallenge.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_productsListFragment"
             app:destination="@id/productsListFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true" />
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/productsListFragment"
         android:name="com.example.halanchallenge.ui.product_list.ProductsListFragment"
         android:label="fragment_products_list"
-        tools:layout="@layout/fragment_products_list" >
+        tools:layout="@layout/fragment_products_list">
         <argument
             android:name="loginResponse"
             app:argType="com.kareem.domain.models.entities.LoginResponse" />
+        <action
+            android:id="@+id/action_productsListFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.halanchallenge.ui.product_details.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details">
+        <argument
+            android:name="product"
+            app:argType="com.kareem.domain.models.entities.products.Product" />
     </fragment>
 </navigation>

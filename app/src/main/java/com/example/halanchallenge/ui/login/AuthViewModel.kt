@@ -32,6 +32,9 @@ class AuthViewModel @Inject constructor(
         }.launchIn(CoroutineScope(coroutineContext))
     }
 
+    fun setIdleState(){
+        _uiState.value = Resource.Idle()
+    }
     override fun onCleared() {
         super.onCleared()
         job.cancel()

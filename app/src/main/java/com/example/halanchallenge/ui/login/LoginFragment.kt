@@ -20,6 +20,7 @@ import com.kareem.domain.result.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
@@ -43,12 +44,13 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initView()
         setupViewController()
+        observeToUIState()
     }
 
     @SuppressLint("CheckResult")
     private fun initView() {
+        viewModel.setIdleState()
         Glide.with(this).load(R.raw.online_shopping).into(binding.ivLoginPhoto)
-        observeToUIState()
     }
 
     private fun observeToUIState() {
@@ -79,9 +81,11 @@ class LoginFragment : Fragment() {
     }
 
     private fun navigateFromLoginToProductsList(loginResponse: LoginResponse) {
-        findNavController().navigate(
-            LoginFragmentDirections.actionLoginFragmentToProductsListFragment(loginResponse)
-        )
+        if (findNavController().currentDestination?.id == R.id.loginFragment) {
+            findNavController().navigate(
+                LoginFragmentDirections.actionLoginFragmentToProductsListFragment(loginResponse)
+            )
+        }
     }
 
     private fun setupViewController() {

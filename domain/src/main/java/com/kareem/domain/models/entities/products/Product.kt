@@ -1,5 +1,7 @@
 package com.kareem.domain.models.entities.products
 
+import java.io.Serializable
+
 
 data class Product(
     val brand: String,
@@ -10,4 +12,4 @@ data class Product(
     val name_ar: String,
     val name_en: String,
     val price: Int
-)
+): Serializable
